@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Disk_NewH\\Stages\\TestAuthAPI\\TestAuthAPI.csproj": {}
+    "F:\\Disk_NewH\\Stages\\TestAuthAPI\\TestAuthAPI.csproj": {}
   },
   "projects": {
-    "G:\\Disk_NewH\\Stages\\TestAuthAPI\\TestAuthAPI.csproj": {
+    "F:\\Disk_NewH\\Stages\\TestAuthAPI\\TestAuthAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Disk_NewH\\Stages\\TestAuthAPI\\TestAuthAPI.csproj",
+        "projectUniqueName": "F:\\Disk_NewH\\Stages\\TestAuthAPI\\TestAuthAPI.csproj",
         "projectName": "TestAuthAPI",
-        "projectPath": "G:\\Disk_NewH\\Stages\\TestAuthAPI\\TestAuthAPI.csproj",
+        "projectPath": "F:\\Disk_NewH\\Stages\\TestAuthAPI\\TestAuthAPI.csproj",
         "packagesPath": "C:\\Users\\Lmij\\.nuget\\packages\\",
-        "outputPath": "G:\\Disk_NewH\\Stages\\TestAuthAPI\\obj\\",
+        "outputPath": "F:\\Disk_NewH\\Stages\\TestAuthAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lmij\\AppData\\Roaming\\NuGet\\NuGet.Config",

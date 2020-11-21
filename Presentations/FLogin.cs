@@ -14,12 +14,12 @@ using TestAuthAPI.Outils;
 
 namespace TestAuthAPI
 {
-    public partial class Form1 : Form
+    public partial class FLogin : Form
     {
         DataTable CurrentDataTable = new DataTable();
         MyUserController myUserController = new MyUserController();
 
-        public Form1()
+        public FLogin()
         {
             InitializeComponent();
         }
@@ -65,7 +65,7 @@ namespace TestAuthAPI
             CurrentDataTable.Columns.Add(ColumnLigneFacture);
 
             */
-            dataGridView1.DataSource = DAL_MyUser.GetAllMyUser(out string txt);
+            //dataGridView1.DataSource = DAL_MyUser.GetAllMyUser(out string txt);
 
 
         }
@@ -88,6 +88,12 @@ namespace TestAuthAPI
         private void BtnDemandRegister_Click(object sender, EventArgs e)
         {
             openNewForms(new FDemandRegister());
+            /*
+            
+            MessageBox.Show(DateTime.Now.ToString() + " \n" + DateTime.Now.ToLocalTime()
+                + " \n" + DateTime.Now.ToLongDateString() + " \n" + DateTime.Now.ToShortDateString()
+                + " \n" + DateTime.Now.ToOADate());*/
+
         }
 
         private void BtnForgotPwd_Click(object sender, EventArgs e)

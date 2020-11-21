@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SE+4tAwlbC68Ls84BoaHX5thBjCEon2Qk2JomGMls5mSdl/9/dCtBVt50CruRCGY3CChMiFA2ULly75yFfZpOQ==",
+  "dgSpecHash": "rpiujXG1HV+cTF94nZoHH7IashEtzA663+aJcSvqF9Fiy8QWMML/sqKA6JSX9c4U0ry2EZ83LmSoXfMpSyDU9A==",
   "success": true,
-  "projectFilePath": "G:\\Disk_NewH\\Stages\\TestAuthAPI\\TestAuthAPI.csproj",
+  "projectFilePath": "F:\\Disk_NewH\\Stages\\TestAuthAPI\\TestAuthAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lmij\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Lmij\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

@@ -25,8 +25,7 @@ namespace TestAuthAPI
         }
         private void BtnSavePwd_Click(object sender, EventArgs e)
         {
-            FDashboard dashboard = new FDashboard();
-            dashboard.Show();
+            //check if password is equal and then save
             this.Close();
         }
 

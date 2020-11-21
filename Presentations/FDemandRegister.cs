@@ -27,19 +27,38 @@ namespace TestAuthAPI
                 MyHelpers.firstForm.Show();
         }
 
+        private bool valideText(string texte)
+        {
+            return texte.ToLower().Trim().Length != 0;
+        }
         private void BtnDemandRegister_Click(object sender, EventArgs e)
         {
-
-            //for register
-            MyOrganization organizationClient = myUserController.register(TxtNameOrg.Text.ToString().ToLower().ToLower(), TxtEmail.Text.ToString().ToLower().ToLower(), TxtContact.Text.ToString().ToLower().ToLower());
-            if (organizationClient != null)
+            if (
+                valideText(TxtNameOrg.Text.ToString()) &&
+                valideText(TxtEmail.Text.ToString())
+                )
             {
-                MessageBox.Show("Great Register " + organizationClient.ToString() + " Please wait until we validate your request");
-                //new FDashboard(userLogged).Show();
-                //InitDatagrid();
+                string messageError = null;
+                //for Demand ofnew organization
+                MyOrganization organizationClient = myUserController.register(
+                    new MyOrganization(
+                        TxtNameOrg.Text.ToString().Trim().ToLower(),
+                        TxtEmail.Text.ToString().Trim().ToLower(),
+                        TxtContact.Text.ToString().Trim().ToLower(),
+                         DateTime.Now.ToShortDateString(), "",""
+                        ), out messageError);
+                if (organizationClient != null)
+                {
+                    MessageBox.Show("Great Demand " + organizationClient.ToString() + " Please wait until we validate your request");
+                    //new FDashboard(userLogged).Show();
+                    //InitDatagrid();
+                }
+                else
+                    MessageBox.Show("You did not register or you already registered \n" + messageError);
+
             }
             else
-                MessageBox.Show("You did not register or you already registered");
+                MessageBox.Show("Please fill the champ");
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)

@@ -30,6 +30,16 @@ namespace TestAuthAPI.Models.DALs
             string Tel = (row["Telephone"].ToString().Length != 0) ? row["Telephone"].ToString() : "pas de Telephone";
             CurrentMyOrganization.Telephone = (Tel);
 
+            string RegistrationDemandDate = (row["RegistrationDemandDate"].ToString().Length != 0) ? row["RegistrationDemandDate"].ToString() : "pas de RegistrationDemandDate";
+            CurrentMyOrganization.RegistrationDemandDate = (RegistrationDemandDate);
+
+
+            string RegistrationDemandResponse = (row["RegistrationDemandResponse"].ToString().Length != 0) ? row["RegistrationDemandResponse"].ToString() : "pas de RegistrationDemandResponse";
+            CurrentMyOrganization.RegistrationDemandResponse = (RegistrationDemandResponse);
+
+            string RegistrationValidationDate = (row["RegistrationValidationDate"].ToString().Length != 0) ? row["RegistrationValidationDate"].ToString() : "pas de RegistrationValidationDate";
+            CurrentMyOrganization.RegistrationValidationDate = (RegistrationValidationDate);
+
             return CurrentMyOrganization;
 
         }
@@ -57,16 +67,16 @@ namespace TestAuthAPI.Models.DALs
             return dataTable;
         }
 
-        public static MyOrganization GetMyOrganizationById(long Id, out string messageError)
+        public static MyOrganization GetMyOrganizationByName(string name, out string messageError)
         {
             messageError = null;
             using (SqlConnection con = DbConnection.GetConnection(out messageError))
             {
                 con.Open();
 
-                MySqlCommand = new SqlCommand("select * from MyOrganization where id = @Id ", con);
+                MySqlCommand = new SqlCommand("select * from MyOrganization where name = @name ", con);
 
-                MySqlCommand.Parameters.Add("@Id", SqlDbType.BigInt).Value = Id;
+                MySqlCommand.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
 
                 DataTable dt = DataBaseAccessUtilities.SelectRequest(MySqlCommand, out messageError);
 
@@ -84,13 +94,15 @@ namespace TestAuthAPI.Models.DALs
                 using (SqlConnection con = DbConnection.GetConnection(out messageError))
                 {
 
-                    MySqlCommand = new SqlCommand("insert into MyOrganization(Email,Name, Telephone) values ( @Email,@Name,@Telephone )", con);
+                    MySqlCommand = new SqlCommand("insert into MyOrganization(Email,Name, Telephone,RegistrationDemandDate,RegistrationDemandResponse,RegistrationValidationDate) values ( @Email,@Name,@Telephone,@RegistrationDemandDate,@RegistrationDemandResponse,@RegistrationValidationDate )", con);
 
 
                     MySqlCommand.Parameters.Add("@Email", SqlDbType.VarChar).Value = newMyOrganization.Email;
-
                     MySqlCommand.Parameters.Add("@Name", SqlDbType.VarChar).Value = newMyOrganization.Name;
                     MySqlCommand.Parameters.Add("@Telephone", SqlDbType.VarChar).Value = newMyOrganization.Telephone;
+                    MySqlCommand.Parameters.Add("@RegistrationDemandDate", SqlDbType.VarChar).Value = newMyOrganization.RegistrationDemandDate;
+                    MySqlCommand.Parameters.Add("@RegistrationDemandResponse", SqlDbType.VarChar).Value = newMyOrganization.RegistrationDemandResponse;
+                    MySqlCommand.Parameters.Add("@RegistrationValidationDate", SqlDbType.VarChar).Value = newMyOrganization.RegistrationValidationDate;
 
                     DataBaseAccessUtilities.NonQueryRequest(MySqlCommand, out messageError);
                 }
@@ -102,7 +114,7 @@ namespace TestAuthAPI.Models.DALs
             }
 
         }
-       
+       /*
         public static void UpdateMyOrganization(long Id, MyOrganization newMyOrganization, out string messageError)
         {
 
@@ -130,7 +142,7 @@ namespace TestAuthAPI.Models.DALs
             }
 
         }
-       
+       */
         public static void DeleteMyOrganization(long Id, out string messageError)
         {
             try

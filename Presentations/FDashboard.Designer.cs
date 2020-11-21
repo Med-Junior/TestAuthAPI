@@ -35,7 +35,7 @@
             // 
             this.LbTitle.AutoSize = true;
             this.LbTitle.Font = new System.Drawing.Font("Segoe UI", 31F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LbTitle.Location = new System.Drawing.Point(73, 174);
+            this.LbTitle.Location = new System.Drawing.Point(201, 65);
             this.LbTitle.Name = "LbTitle";
             this.LbTitle.Size = new System.Drawing.Size(229, 57);
             this.LbTitle.TabIndex = 0;

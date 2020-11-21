@@ -10,17 +10,17 @@ namespace TestAuthAPI.Controllers
 {
     public class MyUserController
     {
-        public MyOrganization register(string NameOrg, string Email, string Tel)
+        public MyOrganization register(MyOrganization myOrganization, out string error)
         {
-            MyOrganization organizationRegister = findOrganization(new MyOrganization(NameOrg, Email, Tel));
+            error = "";
+            MyOrganization organizationRegister = findOrganization(myOrganization, out error);
 
             if (organizationRegister == null)
             {
-                string messageError = null;
-                organizationRegister = new MyOrganization(NameOrg, Email, Tel);
-                DAL_MyOrganization.AddMyOrganization(organizationRegister, out messageError);
+                organizationRegister = new MyOrganization(myOrganization);
+                DAL_MyOrganization.AddMyOrganization(organizationRegister, out error);
 
-                if (messageError != null)
+                if (error != null)
                     return null;
 
                 return organizationRegister;
@@ -52,21 +52,10 @@ namespace TestAuthAPI.Controllers
 
         }
 
-        private MyOrganization findOrganization(MyOrganization organizationSearched)
+        private MyOrganization findOrganization(MyOrganization organizationSearched, out string error)
         {
-            string messageError = null;
-            DataTable data = DAL_MyOrganization.GetAllMyOrganization(out messageError);
-            if (data != null)
-            {
-                List<MyOrganization> allOrg = MyHelpers.AdaptDataTableToListMyOrganization(data);
-                foreach (var org in allOrg)
-                {
-                    if (org.isEqualTo(organizationSearched))
-                        return org;
-                }
-            }
-
-            return null;
+            error = "";
+            return DAL_MyOrganization.GetMyOrganizationByName(organizationSearched.Name, out error);
 
         }
 
